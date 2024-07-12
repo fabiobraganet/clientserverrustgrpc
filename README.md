@@ -2,10 +2,6 @@ Aqui está o README completo para o seu projeto gRPC Client and Server:
 
 # Rust - Client e Server com GRPC e Keycloak
 
-![Build Status](https://github.com/fabiobraganet/clientserverrustgrpc/actions/workflows/ci-server.yml/badge.svg)
-![Build Status](https://github.com/fabiobraganet/clientserverrustgrpc/actions/workflows/ci-client.yml/badge.svg)
-![Deploy Status](https://github.com/fabiobraganet/clientserverrustgrpc/actions/workflows/cd-server.yml/badge.svg)
-![Deploy Status](https://github.com/fabiobraganet/clientserverrustgrpc/actions/workflows/cd-client.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-Unlicense-blue)
 ![Rust](https://img.shields.io/badge/Rust-1.0.0-orange)
 
