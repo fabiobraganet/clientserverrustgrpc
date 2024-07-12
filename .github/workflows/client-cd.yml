@@ -21,7 +21,7 @@ jobs:
           override: true
 
       - name: Install Protoc
-        run: sudo apt-get install -y protobuf-compiler
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
 
       - name: Build
         run: cargo build --release --manifest-path grpc-client/Cargo.toml
