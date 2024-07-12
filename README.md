@@ -1,5 +1,3 @@
-Aqui está o README completo para o seu projeto gRPC Client and Server:
-
 # Rust - Client e Server com GRPC e Keycloak
 
 ![License](https://img.shields.io/badge/license-Unlicense-blue)
@@ -7,7 +5,7 @@ Aqui está o README completo para o seu projeto gRPC Client and Server:
 
 ---
 
-**Esse projeto** contém componentes essenciais para a comunicação eficiente e segura em aplicativos distribuídos, construídos com Rust. Automatize a criação, teste e deploy de seus serviços gRPC.
+**Esse projeto** contém componentes essenciais para a comunicação eficiente e segura em aplicativos distribuídos, construídos com Rust.
 
 ---
 
