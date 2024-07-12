@@ -1,0 +1,33 @@
+[package]
+name = "grpc-client"
+version = "1.0.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+actix-web = "4.0"
+async-trait = "0.1"
+bb8 = "0.7"
+chrono = { version = "0.4", features = ["serde"] }
+dotenv = "0.15"
+env_logger = "0.9"
+futures-util = "0.3"
+http-body = "0.4"
+lapin = "1.6"
+log = "0.4"
+prost = "0.12"
+prost-types = "0.10"
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+tokio = { version = "1.32.0", features = ["full"] }
+tonic = "0.11"
+tonic-build = "0.11"
+tonic-reflection = "0.11"
+url = "2.2"
+uuid = { version = "0.8", features = ["serde", "v4"] }
+
+[build-dependencies]
+tonic-build = "0.11.0"
+tonic-reflection = "0.11"

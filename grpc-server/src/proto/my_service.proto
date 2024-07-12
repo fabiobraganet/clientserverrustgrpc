@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package my_service;
+
+service MyService {
+    rpc MyRpcMethod (MyRequest) returns (MyResponse);
+}
+
+message MyRequest {
+    string name = 1;
+    int32 id = 2;
+}
+
+message MyResponse {
+    string message = 1;
+    int32 code = 2;
+}

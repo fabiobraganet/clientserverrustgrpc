@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    container_name: serverdb
+    environment:
+      POSTGRES_DB: KeyCloakDB
+      POSTGRES_USER: administrator
+      POSTGRES_PASSWORD: administrator
+    ports:
+      - '6010:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backup:/backup
+
+  keycloak:
+    build:
+      context: ./keycloak
+      dockerfile: Dockerfile
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: administrator
+      KEYCLOAK_ADMIN_PASSWORD: administrator
+      DB_VENDOR: postgres
+      DB_ADDR: serverdb
+      DB_DATABASE: KeyCloakDB
+      DB_USER: administrator
+      DB_PASSWORD: administrator
+    ports:
+      - '6003:8080'
+      - '6011:9000'
+    depends_on:
+      - postgres
+
+  minio:
+    build:
+      context: ./minio
+      dockerfile: Dockerfile
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: administrator
+      MINIO_ROOT_PASSWORD: administrator
+    ports:
+      - '6012:9000'
+      - '6001:9001'
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+  rabbitmq:
+    build:
+      context: ./rabbitmq
+      dockerfile: Dockerfile
+    container_name: rabbitmq
+    ports:
+      - '6013:5672'  
+      - '6002:15672' 
+    environment:
+      RABBITMQ_DEFAULT_USER: administrator
+      RABBITMQ_DEFAULT_PASS: administrator
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  postgres_data:
+  minio_data:
+  rabbitmq_data:
